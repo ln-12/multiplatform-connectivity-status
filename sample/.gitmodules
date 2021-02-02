@@ -1,0 +1,3 @@
+[submodule "Reachability"]
+	path = Reachability
+	url = https://github.com/tonymillion/Reachability
