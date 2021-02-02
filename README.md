@@ -13,7 +13,7 @@ With that, you publish the library locally on your machine. Afterwards you need 
 ``` kotlin
 buildscript {
     repositories {
-        ...
+        // ... other repositories
         mavenCentral()
         mavenLocal()
     }
@@ -32,6 +32,8 @@ kotlin {
                 implementation("com.github.ln12:kotlin-connectivity-status:1.0")
             }
         }
+    }
+}
 ```
 
 The code is pretty simple
