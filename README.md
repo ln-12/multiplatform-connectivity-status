@@ -2,7 +2,7 @@
 
 This small Kotlin multiplatform mobile library allows monitoring the internet connection of the device. You can use it from shared code as well as directly from Android or iOS code.
 
-## Usage 
+## Installation 
 
 Clone the repo and run the following command:
 ```
@@ -36,7 +36,15 @@ kotlin {
 }
 ```
 
-The code is pretty simple
+On iOS, you also have to add the [Reachability](https://github.com/tonymillion/Reachability) pod to your Podfile:
+```
+target 'iosApp' do
+    pod 'Reachability'
+end 
+```
+
+## Usage 
+
 ``` kotlin
 // get the satus object
 val connectivityStatus = ConnectivityStatus()
