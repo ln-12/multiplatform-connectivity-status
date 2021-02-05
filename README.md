@@ -29,7 +29,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("com.github.ln12:kotlin-connectivity-status:1.0")
+                implementation("com.github.ln-12:multiplatform-connectivity-status:1.0")
             }
         }
     }

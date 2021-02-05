@@ -1,4 +1,4 @@
-package com.github.ln12.library
+package com.github.`ln-12`.library
 
 import android.content.Context
 import android.net.ConnectivityManager

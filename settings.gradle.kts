@@ -1,7 +1,6 @@
 pluginManagement {
     repositories {
         google()
-        jcenter()
         gradlePluginPortal()
         mavenCentral()
     }
@@ -13,4 +12,4 @@ pluginManagement {
         }
     }
 }
-rootProject.name = "kotlin-connectivity-status"
+rootProject.name = "multiplatform-connectivity-status"
