@@ -12,4 +12,6 @@ pluginManagement {
         }
     }
 }
+
+includeBuild("convention-plugins")
 rootProject.name = "multiplatform-connectivity-status"

@@ -2,11 +2,7 @@ package com.github.ln12.connectivitystatussample.shared
 
 
 import android.content.Context
-import android.net.ConnectivityManager
-import android.net.Network
-import android.util.Log
-import com.github.ln12.library.ConnectivityStatus
-import kotlinx.coroutines.flow.MutableStateFlow
+import com.github.`ln-12`.library.ConnectivityStatus
 
 actual class SharedStatus(context: Context) {
     private val connectivityStatus = ConnectivityStatus(context)

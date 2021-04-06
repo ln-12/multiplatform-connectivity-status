@@ -1,26 +1,22 @@
 # Multiplatform connectivity status
 
-This small Kotlin multiplatform mobile library allows monitoring the internet connection of the device. You can use it from shared code as well as directly from Android or iOS code.
+This Kotlin multiplatform mobile utility library allows monitoring the internet connection status of the device. You can use it from shared code as well as directly from Android or iOS code.
 
+The project structure is taken from [this well explained and detailed tutorial](https://dev.to/kotlin/how-to-build-and-publish-a-kotlin-multiplatform-library-creating-your-first-library-1bp8
+). 
 ## Installation 
 
-Clone the repo and run the following command:
-```
-./gradlew publishToMavenLocal
-```
-
-With that, you publish the library locally on your machine. Afterwards you need to add `mavenLocal` to your repositories:
+Add `mavenCentral()` to your repositories:
 ``` kotlin
 buildscript {
     repositories {
         // ... other repositories
         mavenCentral()
-        mavenLocal()
     }
 }
 ```
 
-Then you can add the library to your project:
+Add the library to your project:
 ``` kotlin
 kotlin {
     android()
@@ -29,7 +25,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("com.github.ln-12:multiplatform-connectivity-status:1.0")
+                implementation("com.github.ln-12:multiplatform-connectivity-status:1.0.0")
             }
         }
     }
@@ -46,7 +42,7 @@ end
 ## Usage 
 
 ``` kotlin
-// get the satus object
+// get the satus object, on Android provide a context
 val connectivityStatus = ConnectivityStatus()
 
 // output changes
@@ -65,12 +61,7 @@ connectivityStatus.stop()
 
 ## Sample
 
-To run the sample you need to clone the repo and run
-```
-./gradlew publishToMavenLocal
-```
-
-Then run the sample apps inside the [sample](./sample) directory.
+You can find a sample Android and iOS app inside the [sample](./sample) directory.
 
 ## License
 
