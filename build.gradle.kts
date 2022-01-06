@@ -1,17 +1,16 @@
 plugins {
     id("com.android.library")
-    kotlin("native.cocoapods") version "1.4.30"
-    kotlin("multiplatform") version "1.4.30"
+    kotlin("native.cocoapods") version "1.6.10"
+    kotlin("multiplatform") version "1.6.10"
     id("convention.publication")
 }
 
 group = "com.github.ln-12"
-version = "1.0.0"
+version = "1.1.0"
 
 repositories {
     google()
     mavenCentral()
-    jcenter()
 }
 
 kotlin {
@@ -27,7 +26,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3-native-mt")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
             }
         }
         val commonTest by getting {
@@ -41,7 +40,7 @@ kotlin {
         val androidTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
-                implementation("junit:junit:4.13.1")
+                implementation("junit:junit:4.13.2")
             }
         }
 
@@ -61,11 +60,11 @@ kotlin {
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdk = 31
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdkVersion(24) // API >= 24 needed for ConnectivityManager.registerDefaultNetworkCallback()
-        targetSdkVersion(30)
+        minSdk = 21
+        targetSdk = 31
     }
 }
 
