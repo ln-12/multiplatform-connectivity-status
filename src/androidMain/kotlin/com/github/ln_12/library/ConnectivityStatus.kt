@@ -54,9 +54,9 @@ actual class ConnectivityStatus(private val context: Context) {
             }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 // API 24 and above
-                connectivityManager!!.registerDefaultNetworkCallback(networkCallback)
+                connectivityManager?.registerDefaultNetworkCallback(networkCallback)
 
-                val currentNetwork = connectivityManager!!.activeNetwork
+                val currentNetwork = connectivityManager?.activeNetwork
 
                 if(currentNetwork == null) {
                     isNetworkConnected.value = false
@@ -73,10 +73,10 @@ actual class ConnectivityStatus(private val context: Context) {
                     }
                 }.build()
 
-                connectivityManager!!.registerNetworkCallback(networkRequest, networkCallback)
+                connectivityManager?.registerNetworkCallback(networkRequest, networkCallback)
 
                 @Suppress("DEPRECATION")
-                val currentNetwork = connectivityManager!!.activeNetworkInfo
+                val currentNetwork = connectivityManager?.activeNetworkInfo
 
                 @Suppress("DEPRECATION")
                 if(currentNetwork == null || (
