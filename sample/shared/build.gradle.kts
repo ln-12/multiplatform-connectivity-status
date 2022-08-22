@@ -8,7 +8,7 @@ kotlin {
     android()
     ios()
 
-    version = "1.1"
+    version = "1.2.0"
 
     cocoapods {
         summary = "Common library"
@@ -19,7 +19,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("com.github.ln_12:multiplatform-connectivity-status:1.2.0")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
             }
         }
         val commonTest by getting {
@@ -44,10 +44,10 @@ kotlin {
 }
 
 android {
-    compileSdk = 31
+    compileSdk = 32
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdk = 21
-        targetSdk = 31
+        targetSdk = 32
     }
 }

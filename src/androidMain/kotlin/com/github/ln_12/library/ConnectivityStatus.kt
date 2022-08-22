@@ -7,7 +7,11 @@ import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import android.os.Build
 import android.util.Log
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 actual class ConnectivityStatus(private val context: Context) {
     actual val isNetworkConnected = MutableStateFlow(false)
@@ -70,8 +74,10 @@ actual class ConnectivityStatus(private val context: Context) {
 
                 connectivityManager.registerNetworkCallback(networkRequest, networkCallback)
 
+                @Suppress("DEPRECATION")
                 val currentNetwork = connectivityManager.activeNetworkInfo
 
+                @Suppress("DEPRECATION")
                 if(currentNetwork == null || (
                     currentNetwork.type != ConnectivityManager.TYPE_ETHERNET &&
                     currentNetwork.type != ConnectivityManager.TYPE_WIFI &&
@@ -94,5 +100,15 @@ actual class ConnectivityStatus(private val context: Context) {
     actual fun stop() {
         connectivityManager?.unregisterNetworkCallback(networkCallback)
         Log.d("Connectivity status", "Stopped")
+    }
+
+    actual fun getStatus(success: (Boolean) -> Unit) {
+        CoroutineScope(Dispatchers.Default).launch {
+            isNetworkConnected.collect { status ->
+                withContext(Dispatchers.Main) {
+                    success(status)
+                }
+            }
+        }
     }
 }

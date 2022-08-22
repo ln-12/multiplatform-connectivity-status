@@ -2,24 +2,20 @@ Pod::Spec.new do |spec|
     spec.name                     = 'multiplatform_connectivity_status'
     spec.version                  = '1.2.0'
     spec.homepage                 = 'https://github.com/ln-12/multiplatform-connectivity-status'
-    spec.source                   = { :git => "Not Published", :tag => "Cocoapods/#{spec.name}/#{spec.version}" }
+    spec.source                   = { :http=> ''}
     spec.authors                  = ''
     spec.license                  = ''
     spec.summary                  = 'A Kotlin multiplatform mobile library to monitor the connectivity status of the device'
-
-    spec.vendored_frameworks      = "build/cocoapods/framework/multiplatform_connectivity_status.framework"
-    spec.libraries                = "c++"
-    spec.module_name              = "#{spec.name}_umbrella"
-
+    spec.vendored_frameworks      = 'build/cocoapods/framework/multiplatform_connectivity_status.framework'
+    spec.libraries                = 'c++'
                 
-
     spec.dependency 'Reachability', '3.2'
-
+                
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':',
         'PRODUCT_MODULE_NAME' => 'multiplatform_connectivity_status',
     }
-
+                
     spec.script_phases = [
         {
             :name => 'Build multiplatform_connectivity_status',
@@ -35,8 +31,9 @@ Pod::Spec.new do |spec|
                 "$REPO_ROOT/gradlew" -p "$REPO_ROOT" $KOTLIN_PROJECT_PATH:syncFramework \
                     -Pkotlin.native.cocoapods.platform=$PLATFORM_NAME \
                     -Pkotlin.native.cocoapods.archs="$ARCHS" \
-                    -Pkotlin.native.cocoapods.configuration=$CONFIGURATION
+                    -Pkotlin.native.cocoapods.configuration="$CONFIGURATION"
             SCRIPT
         }
     ]
+                
 end

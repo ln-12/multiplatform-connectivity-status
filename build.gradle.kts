@@ -1,7 +1,7 @@
 plugins {
     id("com.android.library")
-    kotlin("native.cocoapods") version "1.6.10"
-    kotlin("multiplatform") version "1.6.10"
+    kotlin("native.cocoapods") version "1.7.10"
+    kotlin("multiplatform") version "1.7.10"
     id("convention.publication")
 }
 
@@ -27,7 +27,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
             }
         }
         val commonTest by getting {
@@ -61,11 +61,11 @@ kotlin {
 }
 
 android {
-    compileSdk = 31
+    compileSdk = 32
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdk = 21
-        targetSdk = 31
+        targetSdk = 32
     }
 }
 

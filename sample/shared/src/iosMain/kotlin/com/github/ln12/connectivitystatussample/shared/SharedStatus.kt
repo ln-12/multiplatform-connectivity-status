@@ -1,6 +1,8 @@
 package com.github.ln12.connectivitystatussample.shared
 
 import com.github.ln_12.library.ConnectivityStatus
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
@@ -18,11 +20,5 @@ actual class SharedStatus {
         connectivityStatus.stop()
     }
 
-    fun getStatus(success: (Boolean) -> Unit) {
-        MainScope().launch {
-            connectivityStatus.isNetworkConnected.collect { status ->
-                success(status)
-            }
-        }
-    }
+    fun getStatus(success: (Boolean) -> Unit) = connectivityStatus.getStatus(success)
 }
