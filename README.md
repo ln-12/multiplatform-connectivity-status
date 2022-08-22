@@ -25,7 +25,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("com.github.ln_12:multiplatform-connectivity-status:1.0.0")
+                implementation("com.github.ln_12:multiplatform-connectivity-status:1.2.0")
             }
         }
     }
@@ -65,7 +65,7 @@ You can find a sample Android and iOS app inside the [sample](./sample) director
 
 ## License
 
-Copyright 2021 Lorenzo Neumann
+Copyright 2022 Lorenzo Neumann
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
