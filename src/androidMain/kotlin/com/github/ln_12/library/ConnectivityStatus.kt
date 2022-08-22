@@ -15,13 +15,31 @@ actual class ConnectivityStatus(private val context: Context) {
     private val connectivityManager: ConnectivityManager? = null
     private val networkCallback = object : ConnectivityManager.NetworkCallback() {
         override fun onAvailable(network: Network) {
-            Log.d("Connectivity status", "Connected")
+            Log.d("Connectivity status", "Network available")
             isNetworkConnected.value = true
         }
 
         override fun onLost(network: Network) {
-            Log.d("Connectivity status", "Disconnected")
+            Log.d("Connectivity status", "Network lost")
             isNetworkConnected.value = false
+        }
+
+        override fun onCapabilitiesChanged(
+            network: Network,
+            networkCapabilities: NetworkCapabilities
+        ) {
+            super.onCapabilitiesChanged(network, networkCapabilities)
+
+            val isConnected =
+                networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) &&
+                networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_RESTRICTED) &&
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+                } else { true }
+
+            Log.d("Connectivity status", "Network status: ${if(isConnected){ "Connected" } else { "Disconnected" }}")
+
+            isNetworkConnected.value = isConnected
         }
     }
 
