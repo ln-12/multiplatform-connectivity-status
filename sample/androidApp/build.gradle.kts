@@ -14,7 +14,7 @@ dependencies {
 android {
     compileSdk = 31
     defaultConfig {
-        applicationId = "com.github.ln12.connectivitystatussample.androidApp"
+        applicationId = "com.github.ln_12.connectivitystatussample.androidApp"
         minSdk = 21
         targetSdk = 31
         versionCode = 1

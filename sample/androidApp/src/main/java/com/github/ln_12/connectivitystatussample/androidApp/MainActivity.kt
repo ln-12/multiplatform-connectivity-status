@@ -1,11 +1,11 @@
-package com.github.ln12.connectivitystatussample.androidApp
+package com.github.ln_12.connectivitystatussample.androidApp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.github.ln_12.connectivitystatussample.androidApp.R
 import com.github.ln12.connectivitystatussample.shared.SharedStatus
 import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {

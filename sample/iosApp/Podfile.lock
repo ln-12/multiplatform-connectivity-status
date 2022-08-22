@@ -1,6 +1,6 @@
 PODS:
   - Reachability (3.2)
-  - shared (1.0)
+  - shared (1.1)
 
 DEPENDENCIES:
   - Reachability
@@ -16,8 +16,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  shared: b350daf742bc386fb19f713cb7965b3c541d4a11
+  shared: 1d25f86f11c6a4b6571c7b96e10d0247f30017e1
 
 PODFILE CHECKSUM: a68f2a76f185354c10da6a9c12b5083ec4e79e2a
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.3

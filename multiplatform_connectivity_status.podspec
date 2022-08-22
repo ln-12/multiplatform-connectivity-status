@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'multiplatform_connectivity_status'
-    spec.version                  = '1.1.0'
+    spec.version                  = '1.2.0'
     spec.homepage                 = 'https://github.com/ln-12/multiplatform-connectivity-status'
     spec.source                   = { :git => "Not Published", :tag => "Cocoapods/#{spec.name}/#{spec.version}" }
     spec.authors                  = ''

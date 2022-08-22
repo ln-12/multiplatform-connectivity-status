@@ -5,12 +5,13 @@ plugins {
     id("convention.publication")
 }
 
-group = "com.github.ln-12"
-version = "1.1.0"
+group = "com.github.ln_12"
+version = "1.2.0"
 
 repositories {
     google()
     mavenCentral()
+    mavenLocal()
 }
 
 kotlin {

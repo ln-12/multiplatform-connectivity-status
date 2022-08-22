@@ -1,6 +1,6 @@
 package com.github.ln12.connectivitystatussample.shared
 
-import com.github.`ln-12`.library.ConnectivityStatus
+import com.github.ln_12.library.ConnectivityStatus
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect

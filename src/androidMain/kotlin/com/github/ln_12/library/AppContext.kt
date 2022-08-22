@@ -1,4 +1,4 @@
-package com.github.`ln-12`.library
+package com.github.ln_12.library
 
 import android.app.Application
 

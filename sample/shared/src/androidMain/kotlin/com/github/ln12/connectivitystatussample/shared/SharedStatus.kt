@@ -2,7 +2,7 @@ package com.github.ln12.connectivitystatussample.shared
 
 
 import android.content.Context
-import com.github.`ln-12`.library.ConnectivityStatus
+import com.github.ln_12.library.ConnectivityStatus
 
 actual class SharedStatus(context: Context) {
     private val connectivityStatus = ConnectivityStatus(context)
