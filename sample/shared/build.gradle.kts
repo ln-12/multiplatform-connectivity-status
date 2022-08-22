@@ -18,7 +18,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("com.github.ln_12:multiplatform-connectivity-status:1.2.0")
+                implementation("com.github.ln-12:multiplatform-connectivity-status:1.2.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
             }
         }
