@@ -25,7 +25,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("com.github.ln_12:multiplatform-connectivity-status:1.2.0")
+                implementation("com.github.ln-12:multiplatform-connectivity-status:1.2.0")
             }
         }
     }
@@ -57,6 +57,13 @@ connectivityStatus.start()
 
 // when you are done, stop it
 connectivityStatus.stop()
+```
+
+On iOS, you can also use this `getStatus()` closure to observe changes:
+```swift
+connectivityStatus.getStatus(success: { status in
+    print(status.boolValue)
+})
 ```
 
 ## Sample
