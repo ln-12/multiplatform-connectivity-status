@@ -16,7 +16,7 @@ import kotlinx.coroutines.withContext
 actual class ConnectivityStatus(private val context: Context) {
     actual val isNetworkConnected = MutableStateFlow(false)
 
-    private val connectivityManager: ConnectivityManager? = null
+    private var connectivityManager: ConnectivityManager? = null
     private val networkCallback = object : ConnectivityManager.NetworkCallback() {
         override fun onAvailable(network: Network) {
             Log.d("Connectivity status", "Network available")
@@ -49,13 +49,14 @@ actual class ConnectivityStatus(private val context: Context) {
 
     actual fun start() {
         try {
-            val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-
+            if (connectivityManager == null) {
+                connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 // API 24 and above
-                connectivityManager.registerDefaultNetworkCallback(networkCallback)
+                connectivityManager?.registerDefaultNetworkCallback(networkCallback)
 
-                val currentNetwork = connectivityManager.activeNetwork
+                val currentNetwork = connectivityManager?.activeNetwork
 
                 if(currentNetwork == null) {
                     isNetworkConnected.value = false
@@ -72,10 +73,10 @@ actual class ConnectivityStatus(private val context: Context) {
                     }
                 }.build()
 
-                connectivityManager.registerNetworkCallback(networkRequest, networkCallback)
+                connectivityManager?.registerNetworkCallback(networkRequest, networkCallback)
 
                 @Suppress("DEPRECATION")
-                val currentNetwork = connectivityManager.activeNetworkInfo
+                val currentNetwork = connectivityManager?.activeNetworkInfo
 
                 @Suppress("DEPRECATION")
                 if(currentNetwork == null || (
